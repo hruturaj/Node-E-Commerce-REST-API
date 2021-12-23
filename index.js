@@ -25,7 +25,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/carts ", cartRoutes);
 app.use("/api/orders", orderRoutes);
-app.use("/api/stripe", stripeRoutes);
+app.use("/api/checkout", stripeRoutes);
 
 // connecting mongodb using mongoose
 mongoose
