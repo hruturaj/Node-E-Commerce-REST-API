@@ -5,7 +5,6 @@
   "main": "index.js",
   "dependencies": {
     "cors": "^2.8.5",
-    "crypto-js": "^4.1.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
@@ -14,6 +13,7 @@
     "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
+    "crypto-js": "^4.1.1",
     "nodemon": "^2.0.15",
     "stripe": "^8.195.0"
   },
