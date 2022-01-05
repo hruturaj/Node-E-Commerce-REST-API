@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
+let port = process.env.PORT || 3000;
 const swaggerOptions = {
   definition: {
     openapi: "3.0.0",
@@ -55,6 +56,6 @@ mongoose
   .catch((err) => console.log(err));
 
 // listening on port 3000 or specified port
-app.listen(process.env.PORT || 3000, () => {
+app.listen(port, () => {
   console.log("Node express server listening on port");
 });
