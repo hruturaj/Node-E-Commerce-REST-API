@@ -8,6 +8,28 @@ const SHA256 = require("crypto-js/SHA256");
 const Product = require("../models/Product");
 
 // create product
+/**
+ * @swagger
+ * /api/products:
+ *   post:
+ *     description: To add new products, only access by admin. Verified by JWT token.
+ *     requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *         schema:
+ *          type: object
+ *     responses:
+ *      '200':
+ *        description: Product added successfully.
+ *      '401':
+ *        description: Need to hold admin rights to add new product.
+ *     securityDefinitions:
+        Bearer:
+          type: apiKey
+          name: Authorization
+          in: header
+ */
 router.post("/", verifyTokenAndAdmin, (req, res) => {
   const newProduct = new Product(req.body);
   const savedProduct = newProduct.save();

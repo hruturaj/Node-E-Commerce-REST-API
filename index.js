@@ -3,6 +3,24 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUI = require("swagger-ui-express");
+const swaggerOptions = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "E-commerce API",
+      description: "E-commerce API Documentation",
+      version: "1.0.0",
+      contact: {
+        name: "RE-NO-JS Developer",
+      },
+      servers: ["http://localhost:3000"],
+    },
+  },
+  apis: ["./routes/*.js"], // files containing annotations as above
+};
+const swaggerDocsGenerator = swaggerJsdoc(swaggerOptions);
 
 // importing routes
 const authRoutes = require("./routes/auth.js");
@@ -26,6 +44,9 @@ app.use("/api/products", productRoutes);
 app.use("/api/carts ", cartRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/checkout", stripeRoutes);
+
+// generating routes for swagger api docs
+app.use("/api/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocsGenerator));
 
 // connecting mongodb using mongoose
 mongoose
