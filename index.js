@@ -6,6 +6,8 @@ const cors = require("cors");
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
 let port = process.env.PORT || 3000;
+const routesJson = require("./allRoutes");
+
 const swaggerOptions = {
   definition: {
     openapi: "3.0.0",
@@ -48,6 +50,11 @@ app.use("/api/checkout", stripeRoutes);
 
 // generating routes for swagger api docs
 app.use("/api/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocsGenerator));
+
+// home page - display all routes
+app.use("/", (req, res) => {
+  res.status(200).json(routesJson);
+});
 
 // connecting mongodb using mongoose
 mongoose

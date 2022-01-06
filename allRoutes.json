@@ -1,0 +1,35 @@
+[
+    {
+        "routes" : {
+            "auth" : {
+                "METHOD - PUT" : ["/api/auth/register", "/api/auth/login"]
+            },
+            "cart" : {
+                "METHOD - POST" : ["/api/cart"],
+                "METHOD - PUT" : ["/api/cart/<id>"],
+                "METHOD - DELETE" : ["/api/cart/<id>"],
+                "METHOD - GET" : ["/api/cart/find/<userId>", "/api/cart"]
+            },
+            "order" : {
+                "METHOD - GET" : ["/api/orders/find/<userId>", "/api/orders"],
+                "METHOD - PUT" : ["/api/orders/<id>"],
+                "METHOD - DELETE" : ["/api/orders/<id>"],
+                "METHOD - POST" : ["/api/orders"]    
+            },
+            "product" : {
+                "METHOD - GET" : ["/api/products/find/<userId>", "/api/products"],
+                "METHOD - PUT" : ["/api/products/<id>"],
+                "METHOD - DELETE" : ["/api/products/<id>"],
+                "METHOD - POST" : ["/api/products"]    
+            },
+            "stripe" : {
+                "METHOD - POST" : ["/api/checkout/payment"]    
+            },
+            "user" : {
+                "METHOD - GET" : ["/api/users/find/<id>", "/api/users", "/api/users/stats"],
+                "METHOD - PUT" : ["/api/users/<id>"],
+                "METHOD - DELETE" : ["/api/users/<id>"]
+            }
+        }  
+    }
+]
