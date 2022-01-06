@@ -4,8 +4,10 @@ const {
   verifyTokenandAuthentication,
   verifyTokenAndAdmin,
 } = require("./verifyToken");
-const SHA256 = require("crypto-js/SHA256");
+const crypto = require("crypto-js");
 const User = require("../models/User");
+
+const SHA256 = crypto.SHA256;
 
 // verify user with token
 router.put("/:id", verifyTokenandAuthentication, (req, res) => {

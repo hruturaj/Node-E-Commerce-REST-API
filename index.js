@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
-let port = process.env.PORT || 8000;
+let port = process.env.PORT || 3000;
 const swaggerOptions = {
   definition: {
     openapi: "3.0.0",

@@ -1,7 +1,9 @@
 const router = require("express").Router();
 const User = require("../models/User");
-const SHA256 = require("crypto-js/sha256");
+const crypto = require("crypto-js");
 const jwt = require("jsonwebtoken");
+
+const SHA256 = crypto.SHA256;
 
 // register new user
 router.post("/register", (req, res) => {

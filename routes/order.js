@@ -4,8 +4,10 @@ const {
   verifyTokenandAuthentication,
   verifyTokenAndAdmin,
 } = require("./verifyToken");
-const SHA256 = require("crypto-js/SHA256");
+const crypto = require("crypto-js");
 const Order = require("../models/Order");
+
+const SHA256 = crypto.SHA256;
 
 // create order
 router.post("/", verifyToken, (req, res) => {
